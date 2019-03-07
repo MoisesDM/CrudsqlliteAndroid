@@ -32,13 +32,6 @@ public class Registro_Activity extends AppCompatActivity {
                 RegitrarEstudiantes();
             }
         });
-
-
-
-
-
-
-
     }
     ConexionSQL con = new ConexionSQL(this, "bd_Escuela", null, 1);
     private void  RegitrarEstudiantes(){
