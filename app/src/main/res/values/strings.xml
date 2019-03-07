@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Estudiantes</string>
+    <string name="tv_nombre">Nombre</string>
+    <string name="tv_apPaterno">Apellido Paterno</string>
+    <string name="tv_apMaterno">Apellido Materno</string>
+    <string name="tv_Movil">Numero Movil</string>
+</resources>
