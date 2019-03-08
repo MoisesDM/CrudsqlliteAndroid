@@ -4,4 +4,6 @@
     <string name="tv_apPaterno">Apellido Paterno</string>
     <string name="tv_apMaterno">Apellido Materno</string>
     <string name="tv_Movil">Numero Movil</string>
+    <string name="tv_id">ID</string>
+
 </resources>

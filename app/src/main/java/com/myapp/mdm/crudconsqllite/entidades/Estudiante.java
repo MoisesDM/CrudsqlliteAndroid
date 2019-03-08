@@ -11,6 +11,7 @@ public class Estudiante {
     }
 
     public Estudiante(String nombre, String apPaterno, String apMaterno, String numeroMovil) {
+
         this.Nombre = nombre;
         this.ApPaterno = apPaterno;
         this.ApMaterno = apMaterno;

@@ -23,17 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvEstudiante;
     public static ArrayList<Estudiante> estudiantes;
     ConexionSQL con;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         con = new ConexionSQL(this, "bd_Escuela", null, 1);
         estudiantes = new ArrayList<>();
-
-
-
         ConsultarEstudiantes();
         this.fab = findViewById(R.id.floBtnIngresar);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -42,21 +37,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(
                         getApplicationContext(),
                         Registro_Activity.class
-                );
-                startActivity(intent);
-            }
-        });
+                );startActivity(intent);            }        });
         this.Cargar();
-
     }
-
     private void ConsultarEstudiantes() {
         SQLiteDatabase db = con.getReadableDatabase();
-        Estudiante estudiante=null;
-
-        estudiantes=new ArrayList<Estudiante>();
-        Cursor cursor=db.rawQuery("Select * from "+ utilidades.TABLA_ESTUDIANTE,null);
-        while (cursor.moveToNext()){
+        Estudiante estudiante = null;
+        estudiantes = new ArrayList<Estudiante>();
+        Cursor cursor = db.rawQuery("Select * from " + utilidades.TABLA_ESTUDIANTE, null);
+        while (cursor.moveToNext()) {
 
             estudiante = new Estudiante();
             estudiante.setNombre(cursor.getString(0));
@@ -65,17 +54,7 @@ public class MainActivity extends AppCompatActivity {
             estudiante.setNumeroMovil(cursor.getString(3));
             estudiantes.add(estudiante);
         }
-
-
-
-
-
     }
-
-
-
-
-
     public void Cargar() {
         this.rvEstudiante = findViewById(R.id.rvEstudi);
         this.rvEstudiante.setHasFixedSize(true);
@@ -84,12 +63,13 @@ public class MainActivity extends AppCompatActivity {
         this.rvEstudiante.setAdapter
                 (new EstudiantesAdapter(this.estudiantes, this));
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         this.ConsultarEstudiantes();
         this.Cargar();
     }
+
+
 }
 

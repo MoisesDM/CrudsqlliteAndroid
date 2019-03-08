@@ -1,6 +1,7 @@
 package com.myapp.mdm.crudconsqllite;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import com.myapp.mdm.crudconsqllite.utilidades.utilidades;
 
 public class Registro_Activity extends AppCompatActivity {
-    EditText nombre, app, apm, movil;
+    EditText nombre, app, apm, movil,id;
     Button btnGuardar, btnCancelar;
 
     @Override
@@ -30,6 +31,17 @@ public class Registro_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 RegitrarEstudiantes();
+
+            }
+        });
+        btnCancelar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        getApplicationContext(),
+                        MainActivity.class
+                );
+                startActivity(intent);
             }
         });
     }
@@ -44,5 +56,12 @@ public class Registro_Activity extends AppCompatActivity {
         Long idResultante=db.insert(utilidades.TABLA_ESTUDIANTE,utilidades.CAMPO_NOMBRE,values);
         Toast.makeText(this, "Registrado"+ idResultante, Toast.LENGTH_SHORT).show();
         db.close();
+
+
+        Intent intent = new Intent(
+                getApplicationContext(),
+                MainActivity.class
+        );
+        startActivity(intent);
     }
 }
